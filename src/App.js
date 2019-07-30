@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+
+import ToDoForm from './ToDoForm'
+import ToDoContainer from './ToDoContainer'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      toDos: []
+    }
+  }
+
+  addToDo = (toDo) => {
+    const { toDos } = this.state
+    const newToDo = {...toDo, id: Date.now()}
+
+    this.setState({
+      toDos: [newToDo, ...toDos]
+    })
+  }
+
+  deleteToDo = (id) => {
+    const { toDos } = this.state
+    const newToDos = toDos.filter(toDo => toDo.id !== id)
+
+    this.setState({
+      toDos: newToDos
+    })
+  }
+
+  render(){
+    const { toDos } = this.state
+
+    return (
+      <div className="App">
+        <h1>ToDo App</h1>
+        <ToDoForm addToDo={this.addToDo} />
+        <ToDoContainer toDos={toDos} deleteToDo={this.deleteToDo} />
+      </div>
+    );
+  }
 }
 
 export default App;
