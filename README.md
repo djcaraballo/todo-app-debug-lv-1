@@ -8,4 +8,4 @@ To run the application in the browser, run `npm start` in your terminal.
 *BONUS* Once the app is functional, add styling so that it matches the wireframe pixel for pixel!
 
 Finished app should look like:
-![App view]()
+![App view](https://github.com/djcaraballo/todo-app-debug-lv-1/blob/master/src/screenshot.png)
