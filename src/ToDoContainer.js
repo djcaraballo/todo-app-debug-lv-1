@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'React'
 
-import ToDoItem from './ToDoItem'
+import ToDoItem from './ToDoitem'
 
 const ToDoContainer = ({ toDos, deleteToDo }) => {
   const displayedToDos = toDos.map(toDo => {

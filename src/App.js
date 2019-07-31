@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 
 import ToDoContainer from './ToDoContainer'
-import ToDoForm from './ToDoForm'
 import './App.css';
 
 class App extends Component {
   constructor() {
     super()
-    this.state = {
+    state = {
       toDos: []
     }
   }
 
-  addToDo = (toDo) => {
+  addToDo(toDo) {
     const { toDos } = this.state
     const newToDo = {...toDo, id: Date.now()}
 
@@ -21,7 +20,7 @@ class App extends Component {
     })
   }
 
-  deleteToDo = (id) => {
+  deleteToDo(id) {
     const { toDos } = this.state
     const newToDos = toDos.filter(toDo => toDo.id !== id)
 
@@ -36,8 +35,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>ToDo App</h1>
-        <ToDoForm addToDo={this.addToDo} />
-        <ToDoContainer toDos={toDos} deleteToDo={this.deleteToDo} />
+        <ToDoForm addToDo={addToDo} />
+        <ToDoContainer toDos={toDos} deleteToDo={deleteToDo} />
       </div>
     );
   }
